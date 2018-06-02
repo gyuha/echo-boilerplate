@@ -29,7 +29,7 @@ type config struct {
 	Database database `toml:"database"`
 }
 
-// type app struct {
+type app struct {
 	Name      string `toml:"name"`
 	JwtSecret string `toml:"jwt_secret"`
 }

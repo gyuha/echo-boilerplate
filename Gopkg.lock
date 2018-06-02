@@ -18,7 +18,8 @@
   packages = [
     ".",
     "dialects/mysql",
-    "dialects/postgres"
+    "dialects/postgres",
+    "dialects/sqlite"
   ]
   revision = "6ed508ec6a4ecb3531899a69cbc746ccf65a4166"
   version = "v1.9.1"
@@ -67,6 +68,12 @@
   version = "v0.0.3"
 
 [[projects]]
+  name = "github.com/mattn/go-sqlite3"
+  packages = ["."]
+  revision = "323a32be5a2421b8c7087225079c6c900ec397cd"
+  version = "v1.7.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/valyala/bytebufferpool"
   packages = ["."]
@@ -96,6 +103,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "40c19c34ab1b2e3385d104609665d321fbcadc5469afd78e9cb41d99a806cad7"
+  inputs-digest = "3b0d153469c74ea5fc01bf21e028138e94de5be3b6316348793a1de6a3899a51"
   solver-name = "gps-cdcl"
   solver-version = 1
