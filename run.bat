@@ -1,0 +1,1 @@
+gin -i run server.go | sed s/QWERASDFZXCV//g

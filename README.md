@@ -32,6 +32,39 @@ cli를 사용해서 seed 데이터를 생성 할 수 있습니다.
 
 사용자의 기본 패스트워드는 `test13@$` 입니다.
 
+
+
+## VS Code Debug
+
+`.vscode/launch.json` 파일을 아래와 같이 입력 해 줍니다.
+
+```json
+{
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "remotePath": "",
+            "port": 2345,
+            "host": "127.0.0.1",
+            "program": "${workspaceRoot}/server.go",
+            "env": {},
+            "args": [],
+            "showLog": true,
+            "buildFlags": ["-v"]
+        }
+    ]
+}
+```
+
+
+
 ### Reference
 #### Go
 - [echo guide](https://echo.labstack.com/guide)

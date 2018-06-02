@@ -1,0 +1,52 @@
+# default false
+release_mode = false
+
+# default DEBUG, DEBUG INFO WARN ERROR OFF
+log_level = "DEBUG"
+
+[app]
+name = "Echo boilerplate"
+password_hash = "123456789"
+jwt_secret = "123456789"
+
+[aws]
+s3_bucket_name='echo'
+s3_access_key='ASDFKLZXCVJASDf'
+s3_secret_key='XXXXimloUoYTgTStTBmVVCfGnqcgLGffpXXXXX'
+
+
+[server]
+graceful = true
+addr = ":5000"
+protocol = "http"
+
+# Domains
+domain= "localhost"
+domain_api = "localhost"
+domain_web = "loaclhost"
+domain_socket = "localhost"
+
+[static]
+# BINDATA,FILE(FILE Default)
+type = "BINDATA"
+
+
+[database]
+adapter = "mysql"
+name = "echo"
+user_name = "echo"
+pwd  = "boilerplate"
+host = "database"
+port = 3306
+idle_conns = 10
+open_conns = 100
+log_mode = true
+
+[smtp]
+server = "smtp.gmail.com"
+port = "587"
+from = "noreply@gmail.com"
+pwd = "password"
+
+[opentracing]
+disable = true
