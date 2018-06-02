@@ -2,6 +2,7 @@ package main
 
 import (
 	"echo-boilerplate/conf"
+	"echo-boilerplate/database/orm"
 	"fmt"
 	"os"
 
@@ -13,6 +14,10 @@ func main() {
 		fmt.Fprintf(os.Stderr, "error: %v\n", err)
 		os.Exit(1)
 	}
+
+	db := orm.Init()
+	migrate.Exec(db)
+	defer db.Close()
 
 	e := echo.New()
 

@@ -24,12 +24,12 @@ type config struct {
 
 	App app
 
-	Server server
-	SMTP   smtp     `toml:"smtp"`
-	DB     database `toml:"database"`
+	Server   server
+	SMTP     smtp     `toml:"smtp"`
+	Database database `toml:"database"`
 }
 
-type app struct {
+// type app struct {
 	Name      string `toml:"name"`
 	JwtSecret string `toml:"jwt_secret"`
 }
