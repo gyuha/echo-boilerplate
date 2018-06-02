@@ -16,7 +16,7 @@ type AuthClaims struct {
 	Name     string
 	UserCode string
 	Email    string
-	Role     int
+	Role     string
 }
 
 // CreateTokenString : 인증정보 만들어 주기
