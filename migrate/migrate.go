@@ -1,7 +1,7 @@
 package migrate
 
 import (
-	"ggfighter-server/models"
+	"echo-boilerplate/models"
 
 	"github.com/jinzhu/gorm"
 )

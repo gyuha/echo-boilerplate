@@ -14,7 +14,7 @@ type User struct {
 	CreatedAt time.Time  `json:"-"`
 	UpdatedAt time.Time  `json:"-"`
 	DeletedAt *time.Time `sql:"index" json:"-"`
-	Role      int        `gorm:"default:200"`           // 사용자 접근 권한. 0:관리자, 100:일반 사용자, 200:미인증
+	Role      string     `gorm:"type: enum('admin','user','pending');default:'user'"`
 	UserCode  string     `gorm:"size:100;unique_index"` // 사용자용 코드, 이메일 인증코드로도 사용 됨.
 	Name      string     `gorm:"size:255"`              // Default size for string is 255, reset it with this tag
 	Image     string     `gorm:"size:50"`               // 사용자 이미지

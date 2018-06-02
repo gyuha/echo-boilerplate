@@ -1,0 +1,51 @@
+# 회원 가입
+# REF : https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+# token 만료시 auth의 로그인 api를 호출해서 갱신해서 사용 함.
+@host = 127.0.0.1:5000
+@token = eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjcxMjU0NjksIklEIjoxMDEsIk5hbWUiOiLrj4zrp7kyIiwiVXNlckNvZGUiOiJhcDhEZXY0aVIiLCJFbWFpbCI6Im5pY2VneXVoYUB0ZXN0LmNvbSIsIlJvbGUiOjEwMH0.RA2KW7HKwzXxp1aln4heTcz-hhlQOobgD6ecyEaS3F72xAs9lRcc8UyskUIJE9lO9YsUb6RxjX-_I1G8V1JCvw
+
+# 로그인
+POST http://{{host}}/api/auth/login
+Content-Type: application/json
+
+{ "Email": "user0002@test.com", "Password": "test13@$" }
+
+###
+# 회원 가입
+POST http://{{host}}/api/auth/signup
+Content-Type: application/json
+
+{ "Email": "test@test.com", "Name": "돌맹22", "Password": "test13@$" }
+
+###
+# 인증 이메일 확인
+GET http://localhost:5000/api/auth/email_auth/ap8Dev4iR
+
+###
+# 인증 이메일 재발송
+GET http://{{host}}/api/auth/email_resend?email=nicegyuha@gmail.com
+
+
+###
+# 내 정보 조회
+GET http://{{host}}/api/auth/my_info
+Content-Type: application/json
+AccessToken: {{token}}
+
+###
+# 회원 정보 조회
+GET http://{{host}}/api/auth/user_info/ap8Dev4iR
+
+###
+# 사용자 목록
+GET http://{{host}}/api/auth/users
+
+###
+# 인증 토큰 갱신
+POST http://{{host}}/api/auth/refresh_token
+Content-Type: application/json
+RefreshToken: {{token}}
+
+{
+	"RefreshToken": "{{token}}"
+}

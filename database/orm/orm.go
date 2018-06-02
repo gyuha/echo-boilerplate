@@ -4,6 +4,7 @@ import (
 	"echo-boilerplate/conf"
 	"fmt"
 
+	_ "github.com/go-sql-driver/mysql" // for gorm
 	"github.com/jinzhu/gorm"
 )
 

@@ -8,6 +8,18 @@
   version = "v0.3.0"
 
 [[projects]]
+  name = "github.com/asaskevich/govalidator"
+  packages = ["."]
+  revision = "ccb8e960c48f04d6935e72476ae4a51028f9e22f"
+  version = "v9"
+
+[[projects]]
+  name = "github.com/dgrijalva/jwt-go"
+  packages = ["."]
+  revision = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e"
+  version = "v3.2.0"
+
+[[projects]]
   name = "github.com/go-sql-driver/mysql"
   packages = ["."]
   revision = "a0583e0143b1624142adab07e0e97fe106d99561"
@@ -15,12 +27,7 @@
 
 [[projects]]
   name = "github.com/jinzhu/gorm"
-  packages = [
-    ".",
-    "dialects/mysql",
-    "dialects/postgres",
-    "dialects/sqlite"
-  ]
+  packages = ["."]
   revision = "6ed508ec6a4ecb3531899a69cbc746ccf65a4166"
   version = "v1.9.1"
 
@@ -32,28 +39,23 @@
 
 [[projects]]
   name = "github.com/labstack/echo"
-  packages = ["."]
+  packages = [
+    ".",
+    "middleware"
+  ]
   revision = "6d227dfea4d2e52cb76856120b3c17f758139b4e"
   version = "3.3.5"
 
 [[projects]]
   name = "github.com/labstack/gommon"
   packages = [
+    "bytes",
     "color",
-    "log"
+    "log",
+    "random"
   ]
   revision = "588f4e8bddc6cb45c27b448e925c7fd6a5545434"
   version = "0.2.5"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/lib/pq"
-  packages = [
-    ".",
-    "hstore",
-    "oid"
-  ]
-  revision = "90697d60dd844d5ef6ff15135d0203f65d2f53b8"
 
 [[projects]]
   name = "github.com/mattn/go-colorable"
@@ -66,12 +68,6 @@
   packages = ["."]
   revision = "0360b2af4f38e8d38c7fce2a9f4e702702d73a39"
   version = "v0.0.3"
-
-[[projects]]
-  name = "github.com/mattn/go-sqlite3"
-  packages = ["."]
-  revision = "323a32be5a2421b8c7087225079c6c900ec397cd"
-  version = "v1.7.0"
 
 [[projects]]
   branch = "master"
@@ -90,7 +86,9 @@
   name = "golang.org/x/crypto"
   packages = [
     "acme",
-    "acme/autocert"
+    "acme/autocert",
+    "bcrypt",
+    "blowfish"
   ]
   revision = "5ba7f63082460102a45837dbd1827e10f9479ac0"
 
@@ -103,6 +101,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "3b0d153469c74ea5fc01bf21e028138e94de5be3b6316348793a1de6a3899a51"
+  inputs-digest = "0aeb7b5a03c80218c069a1f69ff610760c3e5410f3dc89e199182949c8b76f11"
   solver-name = "gps-cdcl"
   solver-version = 1

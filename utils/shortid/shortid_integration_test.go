@@ -4,7 +4,7 @@
 package shortid_test
 
 import (
-	"ggfighter-server/utils/shortid"
+	"echo-boilerplate/utils/shortid"
 	"math"
 	"math/rand"
 	"sync"
