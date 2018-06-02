@@ -3,6 +3,7 @@ package main
 import (
 	"echo-boilerplate/conf"
 	"echo-boilerplate/database/orm"
+	"echo-boilerplate/migrate"
 	"fmt"
 	"os"
 

@@ -1,15 +1,10 @@
 package orm
 
 import (
+	"echo-boilerplate/conf"
 	"fmt"
-	"ggfighter-server/conf"
 
-	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
-	_ "github.com/jinzhu/gorm/dialects/sqlite"
-	_ "github.com/lib/pq"
 )
 
 var (
@@ -33,22 +28,22 @@ func databaseConn() {
 		err              error
 	)
 
-	if conf.Conf.DB.Adapter == "mysql" {
+	if conf.Conf.Database.Adapter == "mysql" {
 		connectionString = fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?parseTime=true",
-			conf.Conf.DB.UserName, conf.Conf.DB.Pwd,
-			conf.Conf.DB.Host, conf.Conf.DB.Port, conf.Conf.DB.Name)
-	} else if conf.Conf.DB.Adapter == "postgres" {
+			conf.Conf.Database.UserName, conf.Conf.Database.Pwd,
+			conf.Conf.Database.Host, conf.Conf.Database.Port, conf.Conf.Database.Name)
+	} else if conf.Conf.Database.Adapter == "postgres" {
 		connectionString = fmt.Sprintf("postgresql://%s:%s@%s:%d/%s?sslmode=%s",
-			conf.Conf.DB.UserName, conf.Conf.DB.Pwd,
-			conf.Conf.DB.Host, conf.Conf.DB.Port, conf.Conf.DB.Name,
+			conf.Conf.Database.UserName, conf.Conf.Database.Pwd,
+			conf.Conf.Database.Host, conf.Conf.Database.Port, conf.Conf.Database.Name,
 			"disable")
-	} else if conf.Conf.DB.Adapter == "sqlite3" {
+	} else if conf.Conf.Database.Adapter == "sqlite3" {
 		connectionString = conf.Conf.Database.Name
 	} else {
-		panic("known database adapter..(" + conf.Conf.DB.Adapter + ")")
+		panic("known database adapter..(" + conf.Conf.Database.Adapter + ")")
 	}
 
-	if db, err = gorm.Open(conf.Conf.DB.Adapter, connectionString); err != nil {
+	if db, err = gorm.Open(conf.Conf.Database.Adapter, connectionString); err != nil {
 		fmt.Println("데이터 베이스 연결 오류")
 		panic(err)
 	}
@@ -56,9 +51,9 @@ func databaseConn() {
 		panic(err)
 	}
 
-	db.LogMode(conf.Conf.DB.LogMode)
-	db.DB().SetMaxIdleConns(conf.Conf.DB.IdleConns)
-	db.DB().SetMaxOpenConns(conf.Conf.DB.OpenConns)
+	db.LogMode(conf.Conf.Database.LogMode)
+	db.DB().SetMaxIdleConns(conf.Conf.Database.IdleConns)
+	db.DB().SetMaxOpenConns(conf.Conf.Database.OpenConns)
 }
 
 // Db : return GORM's postgres database connection instance.

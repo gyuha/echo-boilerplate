@@ -32,8 +32,8 @@ type = "BINDATA"
 
 
 [database]
-adapter = "sqlite"
-name = "./app.db"
+adapter = "mysql"
+name = "echo"
 user_name = "echo"
 pwd  = "boilerplate"
 host = "database"
