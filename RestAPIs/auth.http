@@ -19,7 +19,7 @@ Content-Type: application/json
 
 ###
 # 인증 이메일 확인
-GET http://localhost:5000/api/auth/email_auth/ap8Dev4iR
+GET http://{{host}}/api/auth/email_auth/ap8Dev4iR
 
 ###
 # 인증 이메일 재발송
@@ -49,3 +49,7 @@ RefreshToken: {{token}}
 {
 	"RefreshToken": "{{token}}"
 }
+
+###
+# 인증 이메일 확인
+GET http://{{host}}/ws

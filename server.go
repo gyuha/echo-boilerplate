@@ -1,6 +1,7 @@
 package main
 
 import (
+	"echo-boilerplate/chat"
 	"echo-boilerplate/conf"
 	"echo-boilerplate/controllers/api"
 	"echo-boilerplate/database/orm"
@@ -27,6 +28,8 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 func route(e *echo.Echo) *echo.Echo {
 	apiGroup := e.Group("/api")
 	api.Router(apiGroup)
+	chatGroup := e.Group("/ws")
+	chat.Router(chatGroup)
 	return e
 }
 
