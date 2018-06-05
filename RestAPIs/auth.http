@@ -8,7 +8,7 @@
 POST http://{{host}}/api/auth/login
 Content-Type: application/json
 
-{ "Email": "user0002@test.com", "Password": "test13@$" }
+{ "Email": "test@test.com", "Password": "test13@$" }
 
 ###
 # 회원 가입

@@ -18,6 +18,7 @@ import (
 func Users(c echo.Context) error {
 	users := []models.User{}
 	orm.FindAll(&users)
+
 	return jsonHelper.Data(c, true, users)
 }
 

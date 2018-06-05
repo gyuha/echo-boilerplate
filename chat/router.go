@@ -1,4 +1,4 @@
-package api
+package chat
 
 import (
 	"echo-boilerplate/controllers/api/auth"

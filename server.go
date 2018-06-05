@@ -24,16 +24,8 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 	return t.templates.ExecuteTemplate(w, name, data)
 }
 
-// JwsConfig : JWT사용하는 config
-var JwtConfig = middleware.JWTConfig{
-	SigningMethod: "HS512",
-	SigningKey:    []byte(conf.Conf.App.JwtSecret),
-	TokenLookup:   "cookie:user",
-}
-
 func route(e *echo.Echo) *echo.Echo {
 	apiGroup := e.Group("/api")
-	api.JwtConfig = JwtConfig
 	api.Router(apiGroup)
 	return e
 }
