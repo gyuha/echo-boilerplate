@@ -14,9 +14,9 @@ func Router(g *echo.Group) {
 	// ##############
 	// Auth
 	g.GET("", ChannelSelect)
-	g.GET("/chat/:name", Chat)
+	g.GET("/chat/:channel", Chat)
 
-	g.GET("/channel/:name", HandleRequest)
+	g.GET("/channel/:channel", HandleRequest)
 
 	m.HandleMessage(HandleMessage)
 }

@@ -20,13 +20,12 @@ func ChannelSelect(c echo.Context) error {
 
 // Chat 채팅 화면
 func Chat(c echo.Context) error {
-	name := c.Param("name")
-	println(name)
+	channel := c.Param("channel")
 
 	data := struct {
-		name string
+		Channel string
 	}{
-		name: name,
+		Channel: channel,
 	}
 
 	return c.Render(http.StatusOK, "chat.html", data)
