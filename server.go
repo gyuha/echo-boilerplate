@@ -54,6 +54,8 @@ func Init(e *echo.Echo) *echo.Echo {
 	e.Renderer = t
 
 	e = route(e)
+
+	e.Static("/", "public")
 	return e
 }
 

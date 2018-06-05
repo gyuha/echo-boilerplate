@@ -1,8 +1,9 @@
 package chat
 
 import (
-	"echo-boilerplate/helpers/jsonHelper"
-	"fmt"
+	"net/http"
+
+	"gopkg.in/olahol/melody.v1"
 
 	"github.com/gorilla/websocket"
 	"github.com/labstack/echo"
@@ -12,27 +13,34 @@ var (
 	upgrader = websocket.Upgrader{}
 )
 
+// ChannelSelect 채팅
+func ChannelSelect(c echo.Context) error {
+	return c.Render(http.StatusOK, "channelSelect.html", nil)
+}
+
+// Chat 채팅 화면
 func Chat(c echo.Context) error {
-	ws, err := upgrader.Upgrade(c.Response(), c.Request(), nil)
-	if err != nil {
-		return err
-	}
-	defer ws.Close()
+	name := c.Param("name")
+	println(name)
 
-	for {
-		// write
-		err := ws.WriteMessage(websocket.TextMessage, []byte("Hello client!"))
-		if err != nil {
-			c.Logger().Error(err)
-		}
-
-		// read
-		_, msg, err := ws.ReadMessage()
-		if err != nil {
-			c.Logger().Error(err)
-		}
-		fmt.Printf("%s\n", msg)
+	data := struct {
+		name string
+	}{
+		name: name,
 	}
 
-	return jsonHelper.Message(c, true, "완료")
+	return c.Render(http.StatusOK, "chat.html", data)
+}
+
+// HandleRequest 요청 핸들
+func HandleRequest(c echo.Context) error {
+	m.HandleRequest(c.Response().Writer, c.Request())
+	return nil
+}
+
+// HandleMessage 메시지 핸들
+func HandleMessage(s *melody.Session, msg []byte) {
+	m.BroadcastFilter(msg, func(q *melody.Session) bool {
+		return q.Request.URL.Path == s.Request.URL.Path
+	})
 }

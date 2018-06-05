@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="/css/chat.css">
+</head>
+
+<style>
+    #chat {
+        text-align: left;
+        background: #f1f1f1;
+        width: 500px;
+        min-height: 300px;
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h3>Chat Sample</h3>
+            <label for="exampleInputPassword1">Join a channel</label>
+            <div class="form-inline">
+                <div class="form-group">
+                    <input  class="form-control"  placeholder="channel" id="channel" type="text">
+                </div>
+                <button id="join" class="btn btn-default">Join</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var chan = document.getElementById("channel");
+        var join = document.getElementById("join");
+
+        join.onclick = function () {
+            if (chan.value != "") {
+                window.location = "/ws/chat/" + chan.value;
+            }
+        };
+    </script>
+</body>
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</html>
