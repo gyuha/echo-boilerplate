@@ -5,9 +5,8 @@ $(function () {
 
     ws.onmessage = function (msg) {
         data = JSON.parse(msg.data);
-        if (data.name == name) return;
-
-        messageAdd('left', data.text);
+        side = data.name == name ? 'right' : 'left';
+        messageAdd(side, data.text);
     };
 
     sendWsMessage = function(text) {

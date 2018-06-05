@@ -30,7 +30,6 @@ $(function () {
             return;
         }
         $('.message_input').val('');
-        messageAdd('right', text);
         sendWsMessage(text);
     };
     messageAdd = function (message_side, text) {
