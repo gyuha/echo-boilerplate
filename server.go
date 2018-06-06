@@ -78,5 +78,15 @@ func main() {
 	}
 	e.HideBanner = false
 
-	e.Start(conf.Conf.Server.Addr)
+	var addr = ""
+	if port := os.Getenv("PORT"); port != "" {
+		addr = ":"+port
+	} else {
+		addr = conf.Conf.Server.Addr
+	}
+
+	if err := e.Start(addr); err != nil {
+		fmt.Fprintf(os.Stderr, "Server Start Error: %v\n", err)
+		os.Exit(1)
+	}
 }
