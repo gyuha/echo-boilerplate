@@ -1,5 +1,7 @@
 $(function () {
-    var url = 'ws://' + window.location.host + '/ws/channel/' + channel;
+    var loc = window.location;
+    var protocol = loc.protocol == 'http:' ? 'ws:' : 'wss:';
+    var url = protocol + '//' + loc.host + '/ws/channel/' + channel;
     var name = "Guest" + Math.floor(Math.random() * 1000);
     var ws = new WebSocket(url);
 
