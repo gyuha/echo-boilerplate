@@ -1,4 +1,4 @@
-# GG Fighter server
+# Golang echo boilerpalte
 
 ## 서버 자동으로 재실행 하기
 ### 패키지 받기
