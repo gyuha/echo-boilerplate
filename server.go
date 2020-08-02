@@ -2,6 +2,7 @@ package main
 
 import (
 	"echo-boilerplate/chat"
+	"echo-boilerplate/facebook"
 	"echo-boilerplate/conf"
 	"echo-boilerplate/controllers/api"
 	"echo-boilerplate/database/orm"
@@ -30,6 +31,8 @@ func route(e *echo.Echo) *echo.Echo {
 	api.Router(apiGroup)
 	chatGroup := e.Group("/ws")
 	chat.Router(chatGroup)
+	facebookGroup := e.Group("/facebook")
+	facebook.Router(facebookGroup)
 	return e
 }
 
